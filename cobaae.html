@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Types Input Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h3 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 5px rgba(52,152,219,0.3);
+        }
+        .hobby-inputs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .hobby-inputs input {
+            flex: 1;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Input Data Types Demo</h1>
+    
+    <form id="dataForm" onsubmit="handleSubmit(event)">
+        <!-- String -->
+        <div class="input-group">
+            <label>String (Text) Inputs:</label>
+            <input type="text" id="nama" placeholder="Masukkan nama" required>
+            <input type="email" id="email" placeholder="Masukkan email" required>
+        </div>
+
+        <!-- Number -->
+        <div class="input-group">
+            <label>Number Inputs:</label>
+            <input type="number" id="umur" placeholder="Masukkan umur" min="0" required>
+            <input type="number" id="tinggi" step="0.1" placeholder="Masukkan tinggi (cm)" min="0" required>
+        </div>
+
+        <!-- Boolean -->
+        <div class="input-group">
+            <label>Status Pekerjaan:</label>
+            <select id="statusKerja" required>
+                <option value="">Pilih status pekerjaan</option>
+                <option value="true">Sudah Bekerja</option>
+                <option value="false">Belum Bekerja</option>
+            </select>
+        </div>
+
+        <!-- Array -->
+        <div class="input-group">
+            <label>Hobi (Array Input):</label>
+            <div class="hobby-inputs">
+                <input type="text" id="hobi1" placeholder="Hobi 1" required>
+                <input type="text" id="hobi2" placeholder="Hobi 2" required>
+                <input type="text" id="hobi3" placeholder="Hobi 3" required>
+            </div>
+        </div>
+
+        <!-- Object -->
+        <div class="input-group">
+            <label>Data Mahasiswa (Object Input):</label>
+            <input type="text" id="nim" placeholder="Masukkan NIM" pattern="[0-9]{1,12}" required>
+            <input type="text" id="jurusan" placeholder="Masukkan jurusan" required>
+            <input type="number" id="semester" placeholder="Masukkan semester" min="1" max="14" required>
+            <select id="statusAktif" required>
+                <option value="">Pilih status mahasiswa</option>
+                <option value="true">Aktif</option>
+                <option value="false">Tidak Aktif</option>
+            </select>
+        </div>
+
+        <!-- Operator Aritmatika -->
+        <div class="input-group">
+            <h3>Operator Aritmatika</h3>
+            <label>Nilai a:</label>
+            <input type="number" id="nilaiA" required>
+            <label>Nilai b:</label>
+            <input type="number" id="nilaiB" required>
+        </div>
+
+        <!-- Kontrol Alur -->
+        <div class="input-group">
+            <h3>Kontrol Alur</h3>
+            <label>Nilai Ujian:</label>
+            <input type="number" id="nilaiUjian" min="0" max="100" required>
+            <label>Hari (1-7):</label>
+            <input type="number" id="hari" min="1" max="7" required>
+            <label>Jumlah Perulangan:</label>
+            <input type="number" id="loopCount" min="1" max="100" required>
+        </div>
+
+        <!-- Hitung Luas -->
+        <div class="input-group">
+            <h3>Hitung Luas Persegi Panjang</h3>
+            <label>Panjang:</label>
+            <input type="number" id="panjang" min="0" required>
+            <label>Lebar:</label>
+            <input type="number" id="lebar" min="0" required>
+        </div>
+
+        <button type="submit">Tampilkan Data</button>
+    </form>
+
+    <div id="output" class="output-section" style="display: none;">
+        <h3>Output Data:</h3>
+        <pre id="outputText"></pre>
+    </div>
+
+    <script src="cobaae.js"></script>
+</body>
+</html>
